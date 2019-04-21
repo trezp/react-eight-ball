@@ -5,7 +5,7 @@ export default class FortuneDisplay extends Component {
     return(
       <div>
         <h2>The answer to your question "{this.props.question}", {this.props.name}, is:</h2>
-        <p class="prediction">{this.props.answer}.</p>
+        <p className="prediction">{this.props.answer}.</p>
       </div>
     )
   }

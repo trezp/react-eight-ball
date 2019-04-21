@@ -7,11 +7,15 @@
 
 .container {
   font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container h1 {
   font-family: 'Press Start 2P', cursive;
   text-align: center;
+
 }
 .eight-ball {
   cursor: grab;
@@ -21,25 +25,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   background:black;
   height: 300px;
   width: 300px;
-  margin: auto;
   border-radius: 50%;
 }
 
 .fortune {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
+  align-items: center; 
+  flex-basis: 100px;
+  height: 100px;
   background: white;
   color: black;
   border-radius: 50%;
   padding: 5px;
-  height: 100px;
-  width: 100px;
+  text-align: center;
 }
 
 input[type="text"] {
