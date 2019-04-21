@@ -11,7 +11,7 @@
 
 .container h1 {
   font-family: 'Press Start 2P', cursive;
-
+  text-align: center;
 }
 .eight-ball {
   cursor: grab;
@@ -40,4 +40,16 @@
   padding: 5px;
   height: 100px;
   width: 100px;
+}
+
+input[type="text"] {
+  width: 95%;
+  font-size: 1.5em;
+}
+
+.prediction {
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 0;
 }

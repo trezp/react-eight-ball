@@ -8,10 +8,11 @@ import FortuneDisplay from './components/FortuneDisplay';
 
 
 //TO DO
-// Conditional show forms
+// Bug : modal pops up if "enter" is hit inside any form input
 // Style forms... style everything really
 // Animate Eight Ball 
 // Style name modal
+// Add button to ask another question
 
 const fortunes = [
   "It is decidely so",
@@ -32,6 +33,7 @@ class App extends Component {
     this.state = {
       answer: "",
       question: "",
+      displayQuestion: "",
       name: "",
       displayName: "",
       fortunes: fortunes,
@@ -62,7 +64,8 @@ class App extends Component {
 
   handleQuestionSubmit = (event) => {
     event.preventDefault(); 
-    this.setState({question: event.target.value})
+    this.setState({ displayQuestion: this.state.question});
+    document.getElementById("questionForm").reset();
     this.handleClick();
   }
   
@@ -71,17 +74,24 @@ class App extends Component {
       <div className="container">
         <h1>Magic Eight Ball</h1>
         <div onClick={this.handleClick} className="eight-ball">
-          <AnswerDisplay answer={this.state.answer}/>
+          {this.state.answer? <AnswerDisplay answer={this.state.answer}/> : " "}
         </div>
-        <FortuneDisplay 
-          question={this.state.question}
-          answer={this.state.answer}
-        />
-        <Greeter name={this.state.displayName} />
-        <QuestionForm 
+
+        {this.state.displayQuestion ?
+          <FortuneDisplay name={this.state.name} question={this.state.displayQuestion} answer={this.state.answer}/> : " "
+        }
+        
+        {this.state.displayName && !this.state.answer ? 
+           <Greeter name={this.state.displayName} /> : " "
+        }
+       
+       {!this.state.displayQuestion ? 
+          <QuestionForm
           handleQuestionChange={this.handleQuestionChange}
           handleQuestionSubmit={this.handleQuestionSubmit}
-        />
+        /> : null 
+       }
+
         <NameForm
           isOpen={this.state.modalOpen}
           handleChange={this.handleChange}
